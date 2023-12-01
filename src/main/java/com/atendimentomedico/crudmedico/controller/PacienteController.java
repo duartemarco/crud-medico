@@ -1,6 +1,11 @@
 package com.atendimentomedico.crudmedico.controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import com.atendimentomedico.crudmedico.entity.Paciente;
+import com.atendimentomedico.crudmedico.repository.PacienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 //Permitir o cadastro de novos pacientes com informações como nome, data de
 //nascimento, cpf, e-mail.
@@ -10,7 +15,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@RequestMapping("/paciente")
 public class PacienteController {
+
+    @Autowired
+    PacienteRepository pacienteRepository;
+
+    @GetMapping("/todos")
+    public List<Paciente> listarTodosPacientes() {
+        return pacienteRepository.findAll();
+    }
+
+    @PostMapping("/cadastrar")
+    public Paciente cadastrarPaciente(@RequestBody Paciente paciente) {
+        return pacienteRepository.save(paciente);
+    }
+
+
 
 
 }

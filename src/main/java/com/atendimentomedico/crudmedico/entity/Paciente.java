@@ -5,13 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 @Entity
 public class Paciente {
 
-    @Column(nullable = false)
+    @Column(name = "nome")
     public String nome;
 
-    @Column(nullable = false)
+    @Column(name = "nascimento")
     private String dataDeNascimento;
 
     @Autowired
@@ -25,7 +26,7 @@ public class Paciente {
     @Id
     private int cpf;
 
-    @Column(nullable = false)
+    @Column(name = "email")
     private String email;
 
     public String getNome() {
