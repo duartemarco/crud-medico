@@ -1,6 +1,7 @@
 package com.atendimentomedico.crudmedico.controller;
 
 import com.atendimentomedico.crudmedico.entity.Paciente;
+import com.atendimentomedico.crudmedico.repository.MedicoRepository;
 import com.atendimentomedico.crudmedico.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +13,12 @@ import java.util.List;
 @RequestMapping("/paciente")
 public class PacienteController {
 
+    private final PacienteRepository pacienteRepository;
+
     @Autowired
-    PacienteRepository pacienteRepository;
+    public PacienteController(PacienteRepository pacienteRepository) {
+        this.pacienteRepository = pacienteRepository;
+    }
 
     // Get todos os pacientes
     @GetMapping("/all")

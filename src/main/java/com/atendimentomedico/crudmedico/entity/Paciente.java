@@ -30,6 +30,9 @@ public class Paciente {
         this.email = email;
     }
 
+    public Paciente() {
+    }
+
     public String getNome() {
         return nome;
     }
@@ -60,5 +63,13 @@ public class Paciente {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
