@@ -3,8 +3,8 @@ package com.atendimentomedico.crudmedico.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
-
 
 @Entity
 public class Paciente {
@@ -15,19 +15,19 @@ public class Paciente {
     @Column(name = "nascimento")
     private String dataDeNascimento;
 
+    @Id
+    private String cpf;
+
+    @Column(name = "email")
+    private String email;
+
     @Autowired
-    public Paciente(String nome, String dataDeNascimento, int cpf, String email) {
+    public Paciente(String nome, String dataDeNascimento, String cpf, String email) {
         this.nome = nome;
         this.dataDeNascimento = dataDeNascimento;
         this.cpf = cpf;
         this.email = email;
     }
-
-    @Id
-    private int cpf;
-
-    @Column(name = "email")
-    private String email;
 
     public String getNome() {
         return nome;
@@ -45,11 +45,11 @@ public class Paciente {
         this.dataDeNascimento = dataDeNascimento;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
