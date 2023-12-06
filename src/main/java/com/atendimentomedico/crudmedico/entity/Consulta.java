@@ -1,15 +1,23 @@
 package com.atendimentomedico.crudmedico.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Consulta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    private int idConsulta;
+
+    @Column
+    private String dataConsulta;
+
+    @ManyToOne
+    @JoinColumn(name = "nomeMedico", referencedColumnName = "nome")
+    private Medico medico;
+
+    @ManyToOne
+    @JoinColumn(name = "nomePaciente", referencedColumnName = "nome")
+    private Paciente paciente;
 
 }
