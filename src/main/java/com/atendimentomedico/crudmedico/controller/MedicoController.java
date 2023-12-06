@@ -19,25 +19,25 @@ public class MedicoController {
         this.medicoRepository = medicoRepository;
     }
 
-    // Get all Medicos
+    // Get todos os médicos
     @GetMapping("/all")
     public List<Medico> getAllMedicos() {
         return medicoRepository.findAll();
     }
 
-    // Get Medico by ID
+    // Get médico por ID
     @GetMapping("/{id}")
     public Optional<Medico> getMedicoById(@PathVariable Long id) {
         return medicoRepository.findById(id);
     }
 
-    // Create a new Medico
+    // Add novo médico
     @PostMapping("/add")
     public Medico addMedico(@RequestBody Medico medico) {
         return medicoRepository.save(medico);
     }
 
-    // Update an existing Medico
+    // Update um médico por ID
     @PutMapping("/update/{id}")
     public Medico updateMedico(@PathVariable Long id, @RequestBody Medico updatedMedico) {
         return medicoRepository.findById(id).map(medico -> {
@@ -49,7 +49,7 @@ public class MedicoController {
             .orElse(null);
     }
 
-    // Delete Medico by ID
+    // Delete médico por ID
     @DeleteMapping("/delete/{id}")
     public void deleteMedico(@PathVariable Long id) {
         medicoRepository.deleteById(id);
