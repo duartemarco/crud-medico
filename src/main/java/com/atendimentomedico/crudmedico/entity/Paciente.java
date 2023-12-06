@@ -1,13 +1,14 @@
 package com.atendimentomedico.crudmedico.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Paciente {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "nome")
     public String nome;
@@ -15,7 +16,7 @@ public class Paciente {
     @Column(name = "nascimento")
     private String dataDeNascimento;
 
-    @Id
+    @Column(name = "cpf")
     private String cpf;
 
     @Column(name = "email")

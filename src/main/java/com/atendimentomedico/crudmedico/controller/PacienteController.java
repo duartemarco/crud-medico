@@ -7,12 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//Permitir o cadastro de novos pacientes com informações como nome, data de
-//nascimento, cpf, e-mail.
-//Possibilitar listagem de todos os pacientes.
-//Possibilitar a atualização dos dados cadastrais dos pacientes.
-//Permitir a exclusão de pacientes do sistema.
-
 
 @RestController
 @RequestMapping("/paciente")
@@ -21,16 +15,37 @@ public class PacienteController {
     @Autowired
     PacienteRepository pacienteRepository;
 
-    @GetMapping("/todos")
-    public List<Paciente> listarTodosPacientes() {
+    // Get todos os pacientes
+    @GetMapping("/all")
+    public List<Paciente> getAllPacientes() {
         return pacienteRepository.findAll();
     }
 
-    @PostMapping("/cadastrar")
-    public Paciente cadastrarPaciente(@RequestBody Paciente paciente) {
+    // Add um paciente
+    @PostMapping("/add")
+    public Paciente addPaciente(@RequestBody Paciente paciente) {
         return pacienteRepository.save(paciente);
     }
 
+    // Update um paciente por ID
+    @PutMapping("/update/{id}")
+    public Paciente atualizarPaciente(@PathVariable Long id, @RequestBody Paciente pacienteAtualizado) {
+        return pacienteRepository.findById(id)
+                .map(paciente -> {
+                    paciente.setNome(pacienteAtualizado.getNome());
+                    paciente.setDataDeNascimento(pacienteAtualizado.getDataDeNascimento());
+                    paciente.setCpf(pacienteAtualizado.getCpf());
+                    paciente.setEmail(pacienteAtualizado.getEmail());
+                    return pacienteRepository.save(paciente);
+                })
+                .orElse(null);
+    }
+
+    // Deleta paciente por ID
+    @DeleteMapping("/delete/{id}")
+    public void deletePaciente(@PathVariable Long id) {
+        pacienteRepository.deleteById(id);
+    }
 
 
 

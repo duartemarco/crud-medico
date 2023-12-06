@@ -21,7 +21,7 @@ public class PacienteService {
         return repository.findAll();
     }
 
-    public Paciente getPacienteById(Integer id) {
+    public Paciente getPacienteById(Long id) {
         return repository.findById(id).orElse(null);
     }
 
