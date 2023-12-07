@@ -45,8 +45,7 @@ public class MedicoController {
             medico.setCrm((updatedMedico.getCrm()));
             medico.setEspecialidade(updatedMedico.getEspecialidade());
             return medicoRepository.save(medico);
-        })
-            .orElse(null);
+        }).orElse(null);
     }
 
     // Delete médico por ID

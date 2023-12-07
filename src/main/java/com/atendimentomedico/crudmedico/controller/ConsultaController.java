@@ -40,4 +40,22 @@ public class ConsultaController {
     public Consulta addConsulta(@RequestBody Consulta consulta) {
         return consultaRepository.save(consulta);
     }
+
+    // Update uma consulta por ID
+    @PutMapping("/update/{id}")
+    public Consulta atualizarConsulta(@PathVariable Long id, @RequestBody Consulta consultaAtualizado) {
+        return consultaRepository.findById(id).map(consulta -> {
+            consulta.setDataConsulta(consultaAtualizado.getDataConsulta());
+            consulta.setMedico(consultaAtualizado.getMedico());
+            consulta.setPaciente(consultaAtualizado.getPaciente());
+            return consultaRepository.save(consulta);
+        }).orElse(null);
+    }
+
+    // Deleta consulta por ID
+    @DeleteMapping("/delete/{id}")
+    public void deleteConsulta(@PathVariable Long id) {
+        consultaRepository.deleteById(id);
+    }
+
 }
