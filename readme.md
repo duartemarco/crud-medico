@@ -1,6 +1,7 @@
 # Crud Médico - Spring Boot
 
-Este projeto é uma API REST com operações CRUD que utiliza Spring Boot como backend e banco H2 para persistência (local) de dados.
+Este projeto é uma API REST com operações CRUD que utiliza Spring Boot como backend e banco H2 para persistência (local)
+de dados.
 
 A aplicação permite a gestão de informações relacionadas a pacientes, médicos e consultas.
 
@@ -8,13 +9,13 @@ A aplicação permite a gestão de informações relacionadas a pacientes, médi
 
 ### Layout
 
-
 ### Endpoints
 
 #### HTML
-| Método HTTP | URL                            | Descrição      |
-|-------------|--------------------------------|----------------|
-| `GET`       | http://localhost:8000/         | Página inicial |
+
+| Método HTTP | URL                    | Descrição      |
+|-------------|------------------------|----------------|
+| `GET`       | http://localhost:8000/ | Página inicial |
 
 #### Paciente Service
 
