@@ -1,6 +1,7 @@
 package com.atendimentomedico.crudmedico.service;
 
 import com.atendimentomedico.crudmedico.entity.Paciente;
+import com.atendimentomedico.crudmedico.exception.PacienteNotFoundException;
 import com.atendimentomedico.crudmedico.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,8 @@ public class PacienteService {
 
     // Get paciente por ID service
     public Paciente getPacienteById(Long id) {
-        return repository.findById(id).orElse(null);
+        return repository.findById(id)
+                .orElseThrow(() -> new PacienteNotFoundException("Não foi encontrado um paciente com esse ID."));
     }
 
     // Get paciente por nome service

@@ -26,7 +26,7 @@ public class MedicoController {
     }
 
     // Get médico por ID
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public Medico getMedicoById(@PathVariable Long id) {
         return medicoService.getMedicoById(id);
     }

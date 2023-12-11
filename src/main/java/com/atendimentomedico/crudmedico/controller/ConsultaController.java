@@ -29,7 +29,7 @@ public class ConsultaController {
     }
 
     // Get consulta por ID
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public Consulta getConsultaById(@PathVariable Long id) {
         return consultaService.getConsultaById(id);
     }
