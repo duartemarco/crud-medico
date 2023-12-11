@@ -29,7 +29,7 @@ public class MedicoService {
     }
 
     // Get medico por nome service
-    public Medico getMedicoByName(String nome){
+    public Medico getMedicoByName(String nome) {
         return repository.findByNome(nome);
     }
 
