@@ -4,8 +4,6 @@ import com.atendimentomedico.crudmedico.entity.Paciente;
 import com.atendimentomedico.crudmedico.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -15,27 +13,27 @@ public class PacienteService {
     @Autowired
     private PacienteRepository repository;
 
-    // Add um paciente
-    public Paciente cadastraPaciente(Paciente paciente){
+    // Add um paciente service
+    public Paciente cadastraPaciente(Paciente paciente) {
         return repository.save(paciente);
     }
 
-    // Get todos os pacientes
+    // Get todos os pacientes service
     public List<Paciente> getAllPacientes() {
         return repository.findAll();
     }
 
-    // Get paciente por ID
+    // Get paciente por ID service
     public Paciente getPacienteById(Long id) {
         return repository.findById(id).orElse(null);
     }
 
-    // Get paciente por nome
+    // Get paciente por nome service
     public Paciente getPacienteByName(String nome) {
         return repository.findByNome(nome);
     }
 
-    // Update um paciente por ID
+    // Update um paciente por ID service
     public Paciente atualizarPaciente(Long id, Paciente pacienteAtualizado) {
         return repository.findById(id).map(paciente -> {
             paciente.setCpf(pacienteAtualizado.getCpf());
@@ -46,7 +44,7 @@ public class PacienteService {
         }).orElse(null);
     }
 
-    // Deleta paciente por ID
+    // Deleta paciente por ID service
     public void deletePaciente(Long id) {
         repository.deleteById(id);
     }

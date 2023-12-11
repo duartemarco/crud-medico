@@ -1,13 +1,11 @@
 package com.atendimentomedico.crudmedico.controller;
 
 import com.atendimentomedico.crudmedico.entity.Paciente;
-import com.atendimentomedico.crudmedico.repository.PacienteRepository;
 import com.atendimentomedico.crudmedico.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @RestController
@@ -26,7 +24,6 @@ public class PacienteController {
     @GetMapping("/all")
     public List<Paciente> getAllPacientes() {
         return pacienteService.getAllPacientes();
-
     }
 
     // Get paciente por ID
