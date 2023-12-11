@@ -1,7 +1,6 @@
 package com.atendimentomedico.crudmedico.controller;
 
 import com.atendimentomedico.crudmedico.entity.Medico;
-import com.atendimentomedico.crudmedico.repository.MedicoRepository;
 import com.atendimentomedico.crudmedico.service.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

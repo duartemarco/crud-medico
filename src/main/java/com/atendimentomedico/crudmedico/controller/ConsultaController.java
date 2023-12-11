@@ -1,12 +1,11 @@
 package com.atendimentomedico.crudmedico.controller;
 
 import com.atendimentomedico.crudmedico.entity.Consulta;
-import com.atendimentomedico.crudmedico.repository.ConsultaRepository;
+import com.atendimentomedico.crudmedico.service.ConsultaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 // A camada de controller gerencia a relação entre interface REST e a lógica de negócios (service)
 // É responsável por expor a funcionalidade para que seja consumida por entidades externas
@@ -16,46 +15,41 @@ import java.util.Optional;
 @RequestMapping("/consulta")
 public class ConsultaController {
 
-    private final ConsultaRepository consultaRepository;
+    private final ConsultaService consultaService;
 
     @Autowired
-    public ConsultaController(ConsultaRepository consultaRepository) {
-        this.consultaRepository = consultaRepository;
+    public ConsultaController(ConsultaService consultaService) {
+        this.consultaService = consultaService;
     }
 
     // Get todas as consultas
     @GetMapping("/all")
     public List<Consulta> getAllConsultas() {
-        return consultaRepository.findAll();
+        return consultaService.getAllConsultas();
     }
 
     // Get consulta por ID
     @GetMapping("/{id}")
-    public Optional<Consulta> getConsultaById(@PathVariable Long id) {
-        return consultaRepository.findById(id);
+    public Consulta getConsultaById(@PathVariable Long id) {
+        return consultaService.getConsultaById(id);
     }
 
     // Add nova consulta
     @PostMapping("/add")
     public Consulta addConsulta(@RequestBody Consulta consulta) {
-        return consultaRepository.save(consulta);
+        return consultaService.cadastraConsulta(consulta);
     }
 
     // Update uma consulta por ID
     @PutMapping("/update/{id}")
-    public Consulta atualizarConsulta(@PathVariable Long id, @RequestBody Consulta consultaAtualizado) {
-        return consultaRepository.findById(id).map(consulta -> {
-            consulta.setDataConsulta(consultaAtualizado.getDataConsulta());
-            consulta.setMedico(consultaAtualizado.getMedico());
-            consulta.setPaciente(consultaAtualizado.getPaciente());
-            return consultaRepository.save(consulta);
-        }).orElse(null);
+    public Consulta atualizarConsulta(@PathVariable Long id, @RequestBody Consulta consultaAtualizada) {
+        return consultaService.atualizarConsulta(id, consultaAtualizada);
     }
 
     // Deleta consulta por ID
     @DeleteMapping("/delete/{id}")
     public void deleteConsulta(@PathVariable Long id) {
-        consultaRepository.deleteById(id);
+        consultaService.deleteConsulta(id);
     }
 
 }
