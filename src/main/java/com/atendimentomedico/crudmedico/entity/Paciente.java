@@ -11,7 +11,7 @@ public class Paciente {
     private Long id;
 
     @Column(name = "nome")
-    public String nome;
+    private String nome;
 
     @Column(name = "nascimento")
     private String dataDeNascimento;
