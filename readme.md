@@ -6,8 +6,31 @@ de dados.
 A aplicação permite a gestão de informações relacionadas a Pacientes, Médicos e Consultas, 
 possibilitando adicionar, ler, atualizar e deletar tais entidades.
 
-## Overview
+## Guia de Instalação
 
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/duartemarco/crud-medico.git
+    ```
+
+2. **Instale as dependências:**
+
+    ```bash
+    mvn clean install
+    ```
+
+3. **Rode a aplicação Spring Boot:**
+
+    ```bash
+    mvn spring-boot:run
+    ```
+
+4. **Acesse a API:**
+
+    Abra seu navegador e acesse [http://localhost:8000/](http://localhost:8000/).
+
+    Alternativamente, você pode acessar http://localhost:8080/h2-console com o login e senha configurado em application.properties para acessar o console H2.
 ## To Do
 
 - [ ] Implementar logging (LoggerFactory)
