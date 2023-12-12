@@ -12,7 +12,7 @@ possibilitando adicionar, ler, atualizar e deletar tais entidades.
 
 - [ ] Implementar logging (LoggerFactory)
 - [ ] Adicionar validações de entrada (@NotNull, etc)
-- [ ] Implementar autenticação nos endpoints (Spring Security)
+- [ ] Implementar autenticação nos endpoints (Spring Security, token JWT)
 - [ ] Incluir tratamento de exceções e retorno de códigos de status (@ExceptionHandler)
 - [ ] Implementar testes unitários (JUnit)
 
@@ -29,7 +29,7 @@ possibilitando adicionar, ler, atualizar e deletar tais entidades.
 | Método   | URL                                        | Descrição                |
 |----------|--------------------------------------------|--------------------------|
 | `GET`    | http://localhost:8000/paciente/all         | Lista todos os Pacientes |
-| `GET`    | http://localhost:8000/paciente/{id}        | Obtém Paciente por ID    |
+| `GET`    | http://localhost:8000/paciente/id/{id}     | Obtém Paciente por ID    |
 | `GET`    | http://localhost:8000/paciente?nome={nome} | Obtém Paciente por nome  |
 | `POST`   | http://localhost:8000/paciente/add         | Cadastra um Paciente     |
 | `PUT`    | http://localhost:8000/paciente/update/{id} | Atualiza Paciente por ID |
@@ -37,14 +37,14 @@ possibilitando adicionar, ler, atualizar e deletar tais entidades.
 
 ### Médico
 
-| Método   | URL                                       | Descrição              |
-|----------|-------------------------------------------|------------------------|
-| `GET`    | http://localhost:8000/medico/all          | Lista todos os Médicos |
-| `GET`    | http://localhost:8000/medico/{id}         | Obtém Médico por ID    |
-| `GET`    | http://localhost:8000/medico?nome={nome}  | Obtém Médico por nome  |
-| `POST`   | http://localhost:8000/medico/add          | Cadastra um Médico     |
-| `PUT`    | http://localhost:8000/medico/update/{id}  | Atualiza Médico por ID |
-| `DELETE` | http://localhost:8000/medico/delete/{id}  | Deleta Médico por ID   |
+| Método   | URL                                      | Descrição              |
+|----------|------------------------------------------|------------------------|
+| `GET`    | http://localhost:8000/medico/all         | Lista todos os Médicos |
+| `GET`    | http://localhost:8000/medico/id/{id}     | Obtém Médico por ID    |
+| `GET`    | http://localhost:8000/medico?nome={nome} | Obtém Médico por nome  |
+| `POST`   | http://localhost:8000/medico/add         | Cadastra um Médico     |
+| `PUT`    | http://localhost:8000/medico/update/{id} | Atualiza Médico por ID |
+| `DELETE` | http://localhost:8000/medico/delete/{id} | Deleta Médico por ID   |
 
 ### Consulta
 
