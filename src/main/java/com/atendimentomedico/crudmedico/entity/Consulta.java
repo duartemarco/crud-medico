@@ -7,7 +7,7 @@ public class Consulta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idConsulta;
+    private Long idConsulta;
 
     @Column
     private String dataConsulta;
@@ -20,11 +20,11 @@ public class Consulta {
     @JoinColumn(name = "nomePaciente", referencedColumnName = "nome")
     private Paciente paciente;
 
-    public int getIdConsulta() {
+    public Long getIdConsulta() {
         return idConsulta;
     }
 
-    public void setIdConsulta(int idConsulta) {
+    public void setIdConsulta(Long idConsulta) {
         this.idConsulta = idConsulta;
     }
 
