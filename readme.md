@@ -6,6 +6,7 @@ de dados.
 A aplicação permite a gestão de informações relacionadas a Pacientes, Médicos e Consultas, 
 possibilitando adicionar, ler, atualizar e deletar tais entidades.
 
+
 ## Guia de Instalação
 
 1. **Clone o repositório:**
@@ -33,9 +34,9 @@ possibilitando adicionar, ler, atualizar e deletar tais entidades.
     Alternativamente, você pode acessar http://localhost:8080/h2-console com o login e senha configurado em application.properties para acessar o console H2.
 ## To Do
 
-- [ ] Implementar logging (LoggerFactory)
+- [x] Implementar logging (LoggerFactory)
 - [ ] Adicionar validações de entrada (@NotNull, etc)
-- [ ] Implementar autenticação nos endpoints (Spring Security, token JWT)
+- [x] Implementar autenticação nos endpoints (Spring Security, token JWT)
 - [ ] Incluir tratamento de exceções e retorno de códigos de status (@ExceptionHandler)
 - [ ] Implementar testes unitários (JUnit)
 
