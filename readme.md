@@ -72,12 +72,12 @@ possibilitando adicionar, ler, atualizar e deletar tais entidades.
 
 ### Consulta
 
-| Método   | URL                                           | Descrição                  |
-|----------|-----------------------------------------------|----------------------------|
-| `GET`    | http://localhost:8000/consulta/all            | Lista todas as Consultas   |
-| `GET`    | http://localhost:8000/consulta/{id}           | Obtém Consulta por ID      |
-| `POST`   | http://localhost:8000/consulta/add            | Adiciona uma nova Consulta |
-| `PUT`    | http://localhost:8000/consulta/update/{id}    | Atualiza Consulta por ID   |
-| `DELETE` | http://localhost:8000/consulta/delete/{id}    | Deleta Consulta por ID     |
+| Método   | URL                                        | Descrição                  |
+|----------|--------------------------------------------|----------------------------|
+| `GET`    | http://localhost:8000/consulta/all         | Lista todas as Consultas   |
+| `GET`    | http://localhost:8000/consulta/id/{id}     | Obtém Consulta por ID      |
+| `POST`   | http://localhost:8000/consulta/add         | Adiciona uma nova Consulta |
+| `PUT`    | http://localhost:8000/consulta/update/{id} | Atualiza Consulta por ID   |
+| `DELETE` | http://localhost:8000/consulta/delete/{id} | Deleta Consulta por ID     |
 
 Você pode utilizar o Postman (ou outro cliente rest) para testar os endpoints.
